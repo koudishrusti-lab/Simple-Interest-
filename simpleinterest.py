@@ -7,7 +7,7 @@ def calculate_simple_interest(principal, rate, time):
     """Calculate simple interest given principal, rate, and time."""
     return (principal * rate * time) / 100
 
-def main():
+if __name__ == "__main__":
     print("=== Simple Interest Calculator ===")
     try:
         if len(sys.argv) == 4:
@@ -17,20 +17,17 @@ def main():
             t = float(sys.argv[3])
         else:
             # Case 2: No arguments passed (for console use)
-            p = 100000.0
-            r = 5
-            t = 1
+            p = float(input("Enter the principal amount: "))
+            r = float(input("Enter the rate of interest (%): "))
+            t = float(input("Enter the time (in years): "))
 
-        print("\n=== Program Parameters ===")
-        print(f"Principal Amount : {p}")
-        print(f"Rate of Interest : {r}%")
-        print(f"Time in years    : {t}")
+        print("\n=== Program parameters ===")
+        print("Principal Amount :", p)
+        print("Rate of Interest :", r)
+        print("Time in years    :", t)
 
         interest = calculate_simple_interest(p, r, t)
         print(f"\nSimple Interest = {interest:.2f}")
 
     except ValueError:
-           print("Invalid input! Please enter numeric values.")
-
-if __name__ == "__main__":
-    main()
+        print("Invalid input! Please enter numeric values.")
